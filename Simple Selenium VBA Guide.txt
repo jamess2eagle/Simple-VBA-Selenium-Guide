@@ -1,0 +1,34 @@
+' Simple guide using Selenium on Excel to navigate thorugh the web
+
+Sub SLP()
+
+'must install chrome driver, selenium
+    Dim obj As New WebDriver
+    Dim row As Integer
+        
+    Const max_wait_sec As Long = 10
+    
+' start web browser     
+    obj.Start "chrome"
+
+' wait for page to load    
+    obj.Wait (3000)
+
+' navigate to the web page
+  obj.Get "Insert the URL"
+       
+' Different ways to search elements and implicitly wait 5 seconds
+  obj.FindElementByName ("Enter Element Name"), timeout:=5000
+  obj.FindElementByClass ()
+  obj.FindElementByXPath ()
+  obj.FindElementByLinkText ()
+
+' Enter data into the element       
+  obj.FindElementByName("Enter Element Name").SendKeys ("Enter Text")
+                 
+' Click the element            
+  obj.FindElementByName("basic_search_submit").Click
+            
+            
+ End Sub
+   
